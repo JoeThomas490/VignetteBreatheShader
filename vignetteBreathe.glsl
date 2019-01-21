@@ -1,4 +1,4 @@
-//Taken from : https://stackoverflow.com/questions/3451553/value-remapping
+    //Taken from : https://stackoverflow.com/questions/3451553/value-remapping
 float map(float value, float inputMin, float inputMax, float outputMin, float outputMax)
 {
     return outputMin + (value - inputMin) * (outputMax - outputMin) / (inputMax - inputMin);
@@ -22,7 +22,7 @@ void main()
     uv *= 1.0 - uv;
 
     float vig = uv.x * uv.y * 15.0;
-    vig = pow(vig, map(sin(time * 2.0), -1.0, 1.0, _VigPower.x, _VigPower.y));
+    vig = pow(vig, map(sin(time * _BreatheRate), -1.0, 1.0, _VigPower.x, _VigPower.y));
 
     vec4 rimColour = mix(vec4(1,1,1,1), _VigColour, (1.0 -vig)* _VigIntensity);
     
